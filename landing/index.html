@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Városkép – lézervágásra kész fa várostérkép</title>
+<title>CityMap – lézervágásra kész fa várostérkép</title>
 <meta name="description" content="Személyre szabott, rétegelt fa várostérkép digitális vágófájlként (SVG, DXF). Te választod a várost, a formát, a jelölőt és a szöveget – mi megtervezzük.">
 <style>
 /* A két helyőrzőt (e-mail, ár) a lap alján, a CONFIG-ban kell kitölteni. */
@@ -185,7 +185,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <body>
 
 <nav><div class="wrap">
-  <a class="brand" href="#">Város<span>kép</span></a>
+  <a class="brand" href="#">City<span>Map</span></a>
   <ul>
     <li><a href="#testreszabas">Testreszabás</a></li>
     <li><a href="#retegek">Rétegek</a></li>
@@ -455,7 +455,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </div></section>
 
 <footer><div class="wrap">
-  <span>© Városkép · <a data-mail></a></span>
+  <span>© CityMap · <a data-mail></a></span>
   <span>Térképadat: © OpenStreetMap contributors (ODbL)</span>
 </div></footer>
 
@@ -572,12 +572,12 @@ form.addEventListener("submit", e => {
   if (missing.length) { msg.textContent = "Hiányzik: " + missing.join(", ") + "."; return; }
   const v = values();
   const body = [
-    "Városkép – digitális csomag megrendelése", "",
+    "CityMap – digitális csomag megrendelése", "",
     ...Object.entries(v).map(([k, val]) => `${k}: ${val}`), "",
     `Név: ${d.get("name").trim()}`, `E-mail: ${d.get("email").trim()}`,
     d.get("note").trim() ? `Megjegyzés: ${d.get("note").trim()}` : "",
   ].filter((x, i, a) => x !== "" || a[i - 1] !== "").join("\n");
-  const subject = `Városkép rendelés: ${v["Város"]} (${v["Forma"]})`;
+  const subject = `CityMap rendelés: ${v["Város"]} (${v["Forma"]})`;
   location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   msg.textContent = "Megnyílt a levelezőprogramod a kitöltött rendeléssel. Küldd el, és hamarosan jelentkezünk a látványtervvel.";
 });
